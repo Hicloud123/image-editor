@@ -4340,16 +4340,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ICON = _consts.componentNames.ICON; /**
-                                         * @author NHN. FE Development Team <dl_javascript@nhn.com>
-                                         * @fileoverview Add an icon
-                                         */
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Add an icon
+ */
+var ICON = _consts.componentNames.ICON;
+
 
 var command = {
   name: _consts.commandNames.ADD_ICON,
@@ -4384,7 +4384,7 @@ var command = {
   undo: function undo(graphics) {
     graphics.remove(this.undoData.object);
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
 };
 
@@ -4412,12 +4412,14 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Add an image object
+ */
 var command = {
   name: _consts.commandNames.ADD_IMAGE_OBJECT,
 
@@ -4445,13 +4447,9 @@ var command = {
   undo: function undo(graphics) {
     graphics.remove(this.undoData.object);
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
-}; /**
-    * @author NHN. FE Development Team <dl_javascript@nhn.com>
-    * @fileoverview Add an image object
-    */
-
+};
 
 _command2.default.register(command);
 
@@ -4477,12 +4475,14 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Add an object
+ */
 var command = {
   name: _consts.commandNames.ADD_OBJECT,
 
@@ -4493,7 +4493,7 @@ var command = {
    * @returns {Promise}
    */
   execute: function execute(graphics, object) {
-    return new _util.Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
       if (!graphics.contains(object)) {
         graphics.add(object);
         resolve(object);
@@ -4510,7 +4510,7 @@ var command = {
    * @returns {Promise}
    */
   undo: function undo(graphics, object) {
-    return new _util.Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
       if (graphics.contains(object)) {
         graphics.remove(object);
         resolve(object);
@@ -4519,11 +4519,7 @@ var command = {
       }
     });
   }
-}; /**
-    * @author NHN. FE Development Team <dl_javascript@nhn.com>
-    * @fileoverview Add an object
-    */
-
+};
 
 _command2.default.register(command);
 
@@ -4549,16 +4545,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SHAPE = _consts.componentNames.SHAPE; /**
-                                           * @author NHN. FE Development Team <dl_javascript@nhn.com>
-                                           * @fileoverview Add a shape
-                                           */
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Add a shape
+ */
+var SHAPE = _consts.componentNames.SHAPE;
+
 
 var command = {
   name: _consts.commandNames.ADD_SHAPE,
@@ -4603,7 +4599,7 @@ var command = {
   undo: function undo(graphics) {
     graphics.remove(this.undoData.object);
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
 };
 
@@ -4631,20 +4627,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 var _selectionModifyHelper = __webpack_require__(/*! @/helper/selectionModifyHelper */ "./src/js/helper/selectionModifyHelper.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Add a text object
- */
-var TEXT = _consts.componentNames.TEXT;
-
+var TEXT = _consts.componentNames.TEXT; /**
+                                         * @author NHN. FE Development Team <dl_javascript@nhn.com>
+                                         * @fileoverview Add a text object
+                                         */
 
 var command = {
   name: _consts.commandNames.ADD_TEXT,
@@ -4673,7 +4665,7 @@ var command = {
     if (this.undoData.object) {
       var undoObject = this.undoData.object;
 
-      return new _util.Promise(function (resolve, reject) {
+      return new Promise(function (resolve, reject) {
         if (!graphics.contains(undoObject)) {
           graphics.add(undoObject);
           resolve(undoObject);
@@ -4706,7 +4698,7 @@ var command = {
   undo: function undo(graphics) {
     graphics.remove(this.undoData.object);
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
 };
 
@@ -4860,16 +4852,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ICON = _consts.componentNames.ICON; /**
-                                         * @author NHN. FE Development Team <dl_javascript@nhn.com>
-                                         * @fileoverview Change icon color
-                                         */
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Change icon color
+ */
+var ICON = _consts.componentNames.ICON;
+
 
 var command = {
   name: _consts.commandNames.CHANGE_ICON_COLOR,
@@ -4884,7 +4876,7 @@ var command = {
   execute: function execute(graphics, id, color) {
     var _this = this;
 
-    return new _util.Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
       var iconComp = graphics.getComponent(ICON);
       var targetObj = graphics.getObject(id);
 
@@ -4913,7 +4905,7 @@ var command = {
 
     iconComp.setColor(color, icon);
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
 };
 
@@ -4941,18 +4933,12 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 var _selectionModifyHelper = __webpack_require__(/*! @/helper/selectionModifyHelper */ "./src/js/helper/selectionModifyHelper.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview change selection
- */
 var command = {
   name: _consts.commandNames.CHANGE_SELECTION,
 
@@ -4965,16 +4951,20 @@ var command = {
       this.undoData = (0, _selectionModifyHelper.getCachedUndoDataForDimension)();
     }
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   },
   undo: function undo(graphics) {
     this.undoData.forEach(function (datum) {
       graphics.setObjectProperties(datum.id, datum);
     });
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
-};
+}; /**
+    * @author NHN. FE Development Team <dl_javascript@nhn.com>
+    * @fileoverview change selection
+    */
+
 
 _command2.default.register(command);
 
@@ -5004,21 +4994,19 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview change a shape
- */
 var SHAPE = _consts.componentNames.SHAPE;
 
 /**
  * Cached data for undo
  * @type {Object}
+ */
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview change a shape
  */
 
 var cachedUndoDataForSilent = null;
@@ -5068,7 +5056,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return _util.Promise.reject(_consts.rejectMessages.noObject);
+      return Promise.reject(_consts.rejectMessages.noObject);
     }
 
     if (!this.isRedo) {
@@ -5120,16 +5108,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TEXT = _consts.componentNames.TEXT; /**
-                                         * @author NHN. FE Development Team <dl_javascript@nhn.com>
-                                         * @fileoverview Change a text
-                                         */
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Change a text
+ */
+var TEXT = _consts.componentNames.TEXT;
+
 
 var command = {
   name: _consts.commandNames.CHANGE_TEXT,
@@ -5146,7 +5134,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return _util.Promise.reject(_consts.rejectMessages.noObject);
+      return Promise.reject(_consts.rejectMessages.noObject);
     }
 
     this.undoData.object = targetObj;
@@ -5199,21 +5187,19 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Change text styles
- */
 var TEXT = _consts.componentNames.TEXT;
 
 /**
  * Cached data for undo
  * @type {Object}
+ */
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Change text styles
  */
 
 var cachedUndoDataForSilent = null;
@@ -5260,7 +5246,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return _util.Promise.reject(_consts.rejectMessages.noObject);
+      return Promise.reject(_consts.rejectMessages.noObject);
     }
     if (!this.isRedo) {
       var undoData = makeUndoData(styles, targetObj);
@@ -5311,12 +5297,14 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Clear all objects
+ */
 var command = {
   name: _consts.commandNames.CLEAR_OBJECTS,
 
@@ -5328,7 +5316,7 @@ var command = {
   execute: function execute(graphics) {
     var _this = this;
 
-    return new _util.Promise(function (resolve) {
+    return new Promise(function (resolve) {
       _this.undoData.objects = graphics.removeAll();
       resolve();
     });
@@ -5343,13 +5331,9 @@ var command = {
   undo: function undo(graphics) {
     graphics.add(this.undoData.objects);
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
-}; /**
-    * @author NHN. FE Development Team <dl_javascript@nhn.com>
-    * @fileoverview Clear all objects
-    */
-
+};
 
 _command2.default.register(command);
 
@@ -5600,12 +5584,14 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Remove an object
+ */
 var command = {
   name: _consts.commandNames.REMOVE_OBJECT,
 
@@ -5618,7 +5604,7 @@ var command = {
   execute: function execute(graphics, id) {
     var _this = this;
 
-    return new _util.Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
       _this.undoData.objects = graphics.removeObjectById(id);
       if (_this.undoData.objects.length) {
         resolve();
@@ -5636,13 +5622,9 @@ var command = {
   undo: function undo(graphics) {
     graphics.add(this.undoData.objects);
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
-}; /**
-    * @author NHN. FE Development Team <dl_javascript@nhn.com>
-    * @fileoverview Remove an object
-    */
-
+};
 
 _command2.default.register(command);
 
@@ -5737,12 +5719,14 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Resize a canvas
+ */
 var command = {
   name: _consts.commandNames.RESIZE_CANVAS_DIMENSION,
 
@@ -5755,7 +5739,7 @@ var command = {
   execute: function execute(graphics, dimension) {
     var _this = this;
 
-    return new _util.Promise(function (resolve) {
+    return new Promise(function (resolve) {
       _this.undoData.size = {
         width: graphics.cssMaxWidth,
         height: graphics.cssMaxHeight
@@ -5776,13 +5760,9 @@ var command = {
     graphics.setCssMaxDimension(this.undoData.size);
     graphics.adjustCanvasDimension();
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
-}; /**
-    * @author NHN. FE Development Team <dl_javascript@nhn.com>
-    * @fileoverview Resize a canvas
-    */
-
+};
 
 _command2.default.register(command);
 
@@ -5903,12 +5883,14 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Set object properties
+ */
 var command = {
   name: _consts.commandNames.SET_OBJECT_POSITION,
 
@@ -5927,7 +5909,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return _util.Promise.reject(_consts.rejectMessages.noObject);
+      return Promise.reject(_consts.rejectMessages.noObject);
     }
 
     this.undoData.objectId = id;
@@ -5936,7 +5918,7 @@ var command = {
     graphics.setObjectPosition(id, posInfo);
     graphics.renderAll();
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   },
 
 
@@ -5953,13 +5935,9 @@ var command = {
     graphics.setObjectProperties(objectId, props);
     graphics.renderAll();
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
-}; /**
-    * @author NHN. FE Development Team <dl_javascript@nhn.com>
-    * @fileoverview Set object properties
-    */
-
+};
 
 _command2.default.register(command);
 
@@ -5989,16 +5967,10 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Set object properties
- */
 var command = {
   name: _consts.commandNames.SET_OBJECT_PROPERTIES,
 
@@ -6022,7 +5994,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return _util.Promise.reject(_consts.rejectMessages.noObject);
+      return Promise.reject(_consts.rejectMessages.noObject);
     }
 
     this.undoData.props = {};
@@ -6032,7 +6004,7 @@ var command = {
 
     graphics.setObjectProperties(id, props);
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   },
 
 
@@ -6047,9 +6019,13 @@ var command = {
 
     graphics.setObjectProperties(id, props);
 
-    return _util.Promise.resolve();
+    return Promise.resolve();
   }
-};
+}; /**
+    * @author NHN. FE Development Team <dl_javascript@nhn.com>
+    * @fileoverview Set object properties
+    */
+
 
 _command2.default.register(command);
 
@@ -6078,8 +6054,6 @@ var _tuiCodeSnippet = __webpack_require__(/*! tui-code-snippet */ "tui-code-snip
 var _tuiCodeSnippet2 = _interopRequireDefault(_tuiCodeSnippet);
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
-
-var _fabric2 = _interopRequireDefault(_fabric);
 
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
@@ -6208,8 +6182,8 @@ var Cropper = function (_Component) {
       canvas.selection = false;
       canvas.defaultCursor = 'crosshair';
 
-      _fabric2.default.util.addListener(document, 'keydown', this._listeners.keydown);
-      _fabric2.default.util.addListener(document, 'keyup', this._listeners.keyup);
+      _fabric.fabric.util.addListener(document, 'keydown', this._listeners.keydown);
+      _fabric.fabric.util.addListener(document, 'keyup', this._listeners.keyup);
     }
 
     /**
@@ -6235,8 +6209,8 @@ var Cropper = function (_Component) {
 
       this._cropzone = null;
 
-      _fabric2.default.util.removeListener(document, 'keydown', this._listeners.keydown);
-      _fabric2.default.util.removeListener(document, 'keyup', this._listeners.keyup);
+      _fabric.fabric.util.removeListener(document, 'keydown', this._listeners.keydown);
+      _fabric.fabric.util.removeListener(document, 'keyup', this._listeners.keyup);
     }
 
     /**
@@ -6558,13 +6532,9 @@ var _tuiCodeSnippet = __webpack_require__(/*! tui-code-snippet */ "tui-code-snip
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
 
-var _fabric2 = _interopRequireDefault(_fabric);
-
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
 var _component2 = _interopRequireDefault(_component);
-
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
 
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
@@ -6596,7 +6566,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 
-var filters = _fabric2.default.Image.filters;
+var filters = _fabric.fabric.Image.filters;
 
 
 filters.Mask = _mask2.default;
@@ -6634,7 +6604,7 @@ var Filter = function (_Component) {
     value: function add(type, options) {
       var _this2 = this;
 
-      return new _util.Promise(function (resolve, reject) {
+      return new Promise(function (resolve, reject) {
         var sourceImg = _this2._getSourceImage();
         var canvas = _this2.getCanvas();
         var imgFilter = _this2._getFilter(sourceImg, type);
@@ -6670,7 +6640,7 @@ var Filter = function (_Component) {
     value: function remove(type) {
       var _this3 = this;
 
-      return new _util.Promise(function (resolve, reject) {
+      return new Promise(function (resolve, reject) {
         var sourceImg = _this3._getSourceImage();
         var canvas = _this3.getCanvas();
         var options = _this3.getOptions(type);
@@ -6788,7 +6758,7 @@ var Filter = function (_Component) {
       var filterObj = void 0;
       // capitalize first letter for matching with fabric image filter name
       var fabricType = this._getFabricFilterType(type);
-      var ImageFilter = _fabric2.default.Image.filters[fabricType];
+      var ImageFilter = _fabric.fabric.Image.filters[fabricType];
       if (ImageFilter) {
         filterObj = new ImageFilter(options);
         filterObj.options = options;
@@ -6892,8 +6862,6 @@ var _component = __webpack_require__(/*! @/interface/component */ "./src/js/inte
 
 var _component2 = _interopRequireDefault(_component);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -6955,7 +6923,7 @@ var Flip = function (_Component) {
       var isChangingFlipY = setting.flipY !== newSetting.flipY;
 
       if (!isChangingFlipX && !isChangingFlipY) {
-        return _util.Promise.reject(_consts.rejectMessages.flip);
+        return Promise.reject(_consts.rejectMessages.flip);
       }
 
       _tuiCodeSnippet2.default.extend(setting, newSetting);
@@ -6963,7 +6931,7 @@ var Flip = function (_Component) {
       this._invertAngle(isChangingFlipX, isChangingFlipY);
       this._flipObjects(isChangingFlipX, isChangingFlipY);
 
-      return _util.Promise.resolve({
+      return Promise.resolve({
         flipX: setting.flipX,
         flipY: setting.flipY,
         angle: this.getCanvasImage().angle
@@ -7097,8 +7065,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
 
-var _fabric2 = _interopRequireDefault(_fabric);
-
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
 var _component2 = _interopRequireDefault(_component);
@@ -7142,7 +7108,7 @@ var FreeDrawing = function (_Component) {
      * fabric.Color instance for brush color
      * @type {fabric.Color}
      */
-    _this.oColor = new _fabric2.default.Color('rgba(0, 0, 0, 0.5)');
+    _this.oColor = new _fabric.fabric.Color('rgba(0, 0, 0, 0.5)');
     return _this;
   }
 
@@ -7174,7 +7140,7 @@ var FreeDrawing = function (_Component) {
       setting = setting || {};
       this.width = setting.width || this.width;
       if (setting.color) {
-        this.oColor = new _fabric2.default.Color(setting.color);
+        this.oColor = new _fabric.fabric.Color(setting.color);
       }
       brush.width = this.width;
       brush.color = this.oColor.toRgba();
@@ -7222,13 +7188,9 @@ var _tuiCodeSnippet2 = _interopRequireDefault(_tuiCodeSnippet);
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
 
-var _fabric2 = _interopRequireDefault(_fabric);
-
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
 var _component2 = _interopRequireDefault(_component);
-
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
 
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
@@ -7363,7 +7325,7 @@ var Icon = function (_Component) {
     value: function add(type, options) {
       var _this2 = this;
 
-      return new _util.Promise(function (resolve, reject) {
+      return new Promise(function (resolve, reject) {
         var canvas = _this2.getCanvas();
         var path = _this2._pathMap[type];
         var selectionStyle = _consts.fObjectOptions.SELECTION_STYLE;
@@ -7375,7 +7337,7 @@ var Icon = function (_Component) {
         }
 
         icon.set(_tuiCodeSnippet2.default.extend({
-          type: 'path',
+          type: 'icon',
           fill: _this2._oColor
         }, selectionStyle, options, _this2.graphics.controlStyle));
 
@@ -7438,7 +7400,7 @@ var Icon = function (_Component) {
   }, {
     key: '_createIcon',
     value: function _createIcon(path) {
-      return new _fabric2.default.Path(path);
+      return new _fabric.fabric.Path(path);
     }
 
     /**
@@ -7546,8 +7508,6 @@ var _component = __webpack_require__(/*! @/interface/component */ "./src/js/inte
 
 var _component2 = _interopRequireDefault(_component);
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -7606,7 +7566,7 @@ var ImageLoader = function (_Component) {
         canvas.backgroundImage = null;
         canvas.renderAll();
 
-        promise = new _util.Promise(function (resolve) {
+        promise = new Promise(function (resolve) {
           _this2.setCanvasImage('', null);
           resolve();
         });
@@ -7635,10 +7595,10 @@ var ImageLoader = function (_Component) {
       var _this3 = this;
 
       if (!img) {
-        return _util.Promise.reject(_consts.rejectMessages.loadImage);
+        return Promise.reject(_consts.rejectMessages.loadImage);
       }
 
-      return new _util.Promise(function (resolve, reject) {
+      return new Promise(function (resolve, reject) {
         var canvas = _this3.getCanvas();
 
         canvas.setBackgroundImage(img, function () {
@@ -7682,8 +7642,6 @@ var _tuiCodeSnippet = __webpack_require__(/*! tui-code-snippet */ "tui-code-snip
 var _tuiCodeSnippet2 = _interopRequireDefault(_tuiCodeSnippet);
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
-
-var _fabric2 = _interopRequireDefault(_fabric);
 
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
@@ -7734,7 +7692,7 @@ var Line = function (_Component) {
      * @type {fabric.Color}
      * @private
      */
-    _this._oColor = new _fabric2.default.Color('rgba(0, 0, 0, 0.5)');
+    _this._oColor = new _fabric.fabric.Color('rgba(0, 0, 0, 0.5)');
 
     /**
      * Listeners
@@ -7811,7 +7769,7 @@ var Line = function (_Component) {
       this._width = setting.width || this._width;
 
       if (setting.color) {
-        this._oColor = new _fabric2.default.Color(setting.color);
+        this._oColor = new _fabric.fabric.Color(setting.color);
       }
       brush.width = this._width;
       brush.color = this._oColor.toRgba();
@@ -7969,8 +7927,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
-
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
 var _component2 = _interopRequireDefault(_component);
@@ -8092,7 +8048,7 @@ var Resize = function (_Component) {
 
       this.adjustCanvasDimensionBase();
 
-      return _util.Promise.resolve();
+      return Promise.resolve();
     }
 
     /**
@@ -8140,13 +8096,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
 
-var _fabric2 = _interopRequireDefault(_fabric);
-
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
 var _component2 = _interopRequireDefault(_component);
-
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
 
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
@@ -8215,7 +8167,7 @@ var Rotation = function (_Component) {
       var newImageCenter = canvasImage.getCenterPoint();
       this._rotateForEachObject(oldImageCenter, newImageCenter, angle - oldAngle);
 
-      return _util.Promise.resolve(angle);
+      return Promise.resolve(angle);
     }
 
     /**
@@ -8237,8 +8189,8 @@ var Rotation = function (_Component) {
 
       canvas.forEachObject(function (obj) {
         var objCenter = obj.getCenterPoint();
-        var radian = _fabric2.default.util.degreesToRadians(angleDiff);
-        var newObjCenter = _fabric2.default.util.rotatePoint(objCenter, oldImageCenter, radian);
+        var radian = _fabric.fabric.util.degreesToRadians(angleDiff);
+        var newObjCenter = _fabric.fabric.util.rotatePoint(objCenter, oldImageCenter, radian);
 
         obj.set({
           left: newObjCenter.x - centerDiff.x,
@@ -8291,8 +8243,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _tuiCodeSnippet = __webpack_require__(/*! tui-code-snippet */ "tui-code-snippet");
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
-
-var _fabric2 = _interopRequireDefault(_fabric);
 
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
@@ -8454,8 +8404,8 @@ var Shape = function (_Component) {
         'mouse:down': this._handlers.mousedown
       });
 
-      _fabric2.default.util.addListener(document, 'keydown', this._handlers.keydown);
-      _fabric2.default.util.addListener(document, 'keyup', this._handlers.keyup);
+      _fabric.fabric.util.addListener(document, 'keydown', this._handlers.keydown);
+      _fabric.fabric.util.addListener(document, 'keyup', this._handlers.keyup);
     }
 
     /**
@@ -8478,8 +8428,8 @@ var Shape = function (_Component) {
         'mouse:down': this._handlers.mousedown
       });
 
-      _fabric2.default.util.removeListener(document, 'keydown', this._handlers.keydown);
-      _fabric2.default.util.removeListener(document, 'keyup', this._handlers.keyup);
+      _fabric.fabric.util.removeListener(document, 'keydown', this._handlers.keydown);
+      _fabric.fabric.util.removeListener(document, 'keyup', this._handlers.keyup);
     }
 
     /**
@@ -8528,7 +8478,7 @@ var Shape = function (_Component) {
     value: function add(type, options) {
       var _this2 = this;
 
-      return new _util.Promise(function (resolve) {
+      return new Promise(function (resolve) {
         var canvas = _this2.getCanvas();
         var extendOption = _this2._extendOptions(options);
 
@@ -8567,7 +8517,7 @@ var Shape = function (_Component) {
     value: function change(shapeObj, options) {
       var _this3 = this;
 
-      return new _util.Promise(function (resolve, reject) {
+      return new Promise(function (resolve, reject) {
         if (!(0, _util.isShape)(shapeObj)) {
           reject(_consts.rejectMessages.unsupportedType);
         }
@@ -8650,17 +8600,15 @@ var Shape = function (_Component) {
 
       switch (type) {
         case 'rect':
-          instance = new _fabric2.default.Rect(options);
+          instance = new _fabric.fabric.Rect(options);
           break;
         case 'circle':
-          console.log('add ellipse');
-          console.log(options);
-          instance = new _fabric2.default.Ellipse((0, _tuiCodeSnippet.extend)({
+          instance = new _fabric.fabric.Ellipse((0, _tuiCodeSnippet.extend)({
             type: 'circle'
           }, options));
           break;
         case 'triangle':
-          instance = new _fabric2.default.Triangle(options);
+          instance = new _fabric.fabric.Triangle(options);
           break;
         default:
           instance = {};
@@ -8952,7 +8900,7 @@ var Shape = function (_Component) {
           top = shapeObj.top;
 
 
-      _fabric2.default.util.addTransformToObject(shapeObj, activeSelection.calcTransformMatrix());
+      _fabric.fabric.util.addTransformToObject(shapeObj, activeSelection.calcTransformMatrix());
       this._resetPositionFillFilter(shapeObj);
 
       shapeObj.set({
@@ -8992,13 +8940,9 @@ var _tuiCodeSnippet2 = _interopRequireDefault(_tuiCodeSnippet);
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
 
-var _fabric2 = _interopRequireDefault(_fabric);
-
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
 var _component2 = _interopRequireDefault(_component);
-
-var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
 
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
@@ -9230,7 +9174,7 @@ var Text = function (_Component) {
     value: function add(text, options) {
       var _this4 = this;
 
-      return new _util.Promise(function (resolve) {
+      return new Promise(function (resolve) {
         var canvas = _this4.getCanvas();
         var newText = null;
         var selectionStyle = _consts.fObjectOptions.SELECTION_STYLE;
@@ -9246,7 +9190,7 @@ var Text = function (_Component) {
           options.autofocus = true;
         }
 
-        newText = new _fabric2.default.IText(text, styles);
+        newText = new _fabric.fabric.IText(text, styles);
         selectionStyle = _tuiCodeSnippet2.default.extend({}, selectionStyle, {
           originX: 'left',
           originY: 'top'
@@ -9285,7 +9229,7 @@ var Text = function (_Component) {
     value: function change(activeObj, text) {
       var _this5 = this;
 
-      return new _util.Promise(function (resolve) {
+      return new Promise(function (resolve) {
         activeObj.set('text', text);
 
         _this5.getCanvas().renderAll();
@@ -9312,7 +9256,7 @@ var Text = function (_Component) {
     value: function setStyle(activeObj, styleObj) {
       var _this6 = this;
 
-      return new _util.Promise(function (resolve) {
+      return new Promise(function (resolve) {
         _tuiCodeSnippet2.default.forEach(styleObj, function (val, key) {
           if (activeObj[key] === val && key !== 'fontSize') {
             styleObj[key] = resetStyles[key] || '';
@@ -9702,8 +9646,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
 
-var _fabric2 = _interopRequireDefault(_fabric);
-
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
 var _component2 = _interopRequireDefault(_component);
@@ -9835,14 +9777,14 @@ var Zoom = function (_Component) {
      * @type {fabric.Rect}
      * @private
      */
-    _this._verticalScroll = new _fabric2.default.Rect(DEFAULT_SCROLL_OPTION);
+    _this._verticalScroll = new _fabric.fabric.Rect(DEFAULT_SCROLL_OPTION);
 
     /**
      * horizontal scroll bar
      * @type {fabric.Rect}
      * @private
      */
-    _this._horizontalScroll = new _fabric2.default.Rect(DEFAULT_SCROLL_OPTION);
+    _this._horizontalScroll = new _fabric.fabric.Rect(DEFAULT_SCROLL_OPTION);
 
     canvas.on(ZOOM_CHANGED, _this._listeners.zoomChanged);
 
@@ -9860,8 +9802,8 @@ var Zoom = function (_Component) {
   _createClass(Zoom, [{
     key: 'attachKeyboardZoomEvents',
     value: function attachKeyboardZoomEvents() {
-      _fabric2.default.util.addListener(document, KEY_DOWN, this._listeners.keydown);
-      _fabric2.default.util.addListener(document, KEY_UP, this._listeners.keyup);
+      _fabric.fabric.util.addListener(document, KEY_DOWN, this._listeners.keydown);
+      _fabric.fabric.util.addListener(document, KEY_UP, this._listeners.keyup);
     }
 
     /**
@@ -9871,8 +9813,8 @@ var Zoom = function (_Component) {
   }, {
     key: 'detachKeyboardZoomEvents',
     value: function detachKeyboardZoomEvents() {
-      _fabric2.default.util.removeListener(document, KEY_DOWN, this._listeners.keydown);
-      _fabric2.default.util.removeListener(document, KEY_UP, this._listeners.keyup);
+      _fabric.fabric.util.removeListener(document, KEY_DOWN, this._listeners.keydown);
+      _fabric.fabric.util.removeListener(document, KEY_UP, this._listeners.keyup);
     }
 
     /**
@@ -9948,7 +9890,7 @@ var Zoom = function (_Component) {
 
       this._changeObjectsEventedState(false);
 
-      this.zoomArea = new _fabric2.default.Rect({
+      this.zoomArea = new _fabric.fabric.Rect({
         left: 0,
         top: 0,
         width: 0.5,
