@@ -7136,6 +7136,10 @@ var FreeDrawing = function (_Component) {
      * @type {fabric.Color}
      */
     _this.oColor = new _fabric2.default.Color('rgba(0, 0, 0, 0.5)');
+
+    _this._handlers = {
+      mousedown: _this._onFabricMouseDown.bind(_this)
+    };
     return _this;
   }
 
@@ -7152,6 +7156,8 @@ var FreeDrawing = function (_Component) {
 
       canvas.isDrawingMode = true;
       this.setBrush(setting);
+
+      canvas.on('mouse:down', this._handlers.mousedown);
     }
 
     /**
@@ -7183,6 +7189,15 @@ var FreeDrawing = function (_Component) {
       var canvas = this.getCanvas();
 
       canvas.isDrawingMode = false;
+
+      canvas.off({
+        'mouse:down': this._handlers.mousedown
+      });
+    }
+  }, {
+    key: '_onFabricMouseDown',
+    value: function _onFabricMouseDown() {
+      this.fire(_consts.eventNames.OBJECT_ADDED, this.graphics.createObjectProperties());
     }
   }]);
 

@@ -4,7 +4,7 @@
  */
 import fabric from 'fabric';
 import Component from '@/interface/component';
-import { componentNames } from '@/consts';
+import { eventNames as events, componentNames } from '@/consts';
 
 /**
  * FreeDrawing
@@ -28,6 +28,10 @@ class FreeDrawing extends Component {
      * @type {fabric.Color}
      */
     this.oColor = new fabric.Color('rgba(0, 0, 0, 0.5)');
+
+    this._handlers = {
+      mousedown: this._onFabricMouseDown.bind(this),
+    };
   }
 
   /**
@@ -39,6 +43,8 @@ class FreeDrawing extends Component {
 
     canvas.isDrawingMode = true;
     this.setBrush(setting);
+
+    canvas.on('mouse:down', this._handlers.mousedown);
   }
 
   /**
@@ -64,6 +70,14 @@ class FreeDrawing extends Component {
     const canvas = this.getCanvas();
 
     canvas.isDrawingMode = false;
+
+    canvas.off({
+      'mouse:down': this._handlers.mousedown,
+    });
+  }
+
+  _onFabricMouseDown() {
+    this.fire(events.OBJECT_ADDED, this.graphics.createObjectProperties());
   }
 }
 
