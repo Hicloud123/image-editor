@@ -3,8 +3,9 @@
  * @fileoverview Add filter module
  */
 import { isUndefined, extend, forEach, filter } from 'tui-code-snippet';
-import { fabric } from 'fabric';
+import fabric from 'fabric';
 import Component from '@/interface/component';
+import { Promise } from '@/util';
 import { rejectMessages, componentNames } from '@/consts';
 import Mask from '@/extension/mask';
 import Sharpen from '@/extension/sharpen';

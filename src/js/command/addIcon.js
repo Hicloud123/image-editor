@@ -3,6 +3,7 @@
  * @fileoverview Add an icon
  */
 import commandFactory from '@/factory/command';
+import { Promise } from '@/util';
 import { componentNames, commandNames } from '@/consts';
 
 const { ICON } = componentNames;

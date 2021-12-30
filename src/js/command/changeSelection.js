@@ -3,6 +3,7 @@
  * @fileoverview change selection
  */
 import commandFactory from '@/factory/command';
+import { Promise } from '@/util';
 import { commandNames } from '@/consts';
 import { getCachedUndoDataForDimension } from '@/helper/selectionModifyHelper';
 
