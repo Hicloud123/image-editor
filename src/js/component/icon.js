@@ -3,9 +3,8 @@
  * @fileoverview Add icon module
  */
 import snippet from 'tui-code-snippet';
-import fabric from 'fabric';
+import { fabric } from 'fabric';
 import Component from '@/interface/component';
-import { Promise } from '@/util';
 import { eventNames as events, rejectMessages, componentNames, fObjectOptions } from '@/consts';
 
 const pathMap = {
@@ -122,7 +121,7 @@ class Icon extends Component {
       icon.set(
         snippet.extend(
           {
-            type: 'path',
+            type: 'icon',
             fill: this._oColor,
           },
           selectionStyle,

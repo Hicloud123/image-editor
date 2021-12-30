@@ -3,7 +3,7 @@
  * @fileoverview Shape component
  */
 import { extend } from 'tui-code-snippet';
-import fabric from 'fabric';
+import { fabric } from 'fabric';
 import Component from '@/interface/component';
 import resizeHelper from '@/helper/shapeResizeHelper';
 import {
@@ -15,7 +15,6 @@ import {
   resetFillPatternCanvas,
 } from '@/helper/shapeFilterFillHelper';
 import {
-  Promise,
   changeOrigin,
   getCustomProperty,
   getFillTypeFromOption,
@@ -334,8 +333,6 @@ export default class Shape extends Component {
         instance = new fabric.Rect(options);
         break;
       case 'circle':
-        console.log('add ellipse');
-        console.log(options);
         instance = new fabric.Ellipse(
           extend(
             {
