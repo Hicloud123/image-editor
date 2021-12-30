@@ -4,7 +4,7 @@
  */
 import fabric from 'fabric';
 import Component from '@/interface/component';
-import { componentNames } from '@/consts';
+import { eventNames, componentNames } from '@/consts';
 
 /**
  * FreeDrawing
@@ -64,6 +64,8 @@ class FreeDrawing extends Component {
     const canvas = this.getCanvas();
 
     canvas.isDrawingMode = false;
+
+    this.fire(eventNames.OBJECT_ADDED);
   }
 }
 
