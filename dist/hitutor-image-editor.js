@@ -7183,8 +7183,6 @@ var FreeDrawing = function (_Component) {
       var canvas = this.getCanvas();
 
       canvas.isDrawingMode = false;
-
-      this.fire(_consts.eventNames.OBJECT_ADDED);
     }
   }]);
 
