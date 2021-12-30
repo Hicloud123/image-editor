@@ -4,7 +4,7 @@
  */
 import fabric from 'fabric';
 import Component from '@/interface/component';
-import { eventNames as events, componentNames } from '@/consts';
+import { componentNames } from '@/consts';
 
 /**
  * FreeDrawing
@@ -28,12 +28,6 @@ class FreeDrawing extends Component {
      * @type {fabric.Color}
      */
     this.oColor = new fabric.Color('rgba(0, 0, 0, 0.5)');
-
-    this._handlers = {
-      mousedown: this._onFabricMouseDown.bind(this),
-      mousemove: this._onFabricMouseMove.bind(this),
-      mouseup: this._onFabricMouseUp.bind(this),
-    };
   }
 
   /**
@@ -45,8 +39,6 @@ class FreeDrawing extends Component {
 
     canvas.isDrawingMode = true;
     this.setBrush(setting);
-
-    canvas.on('mouse:down', this._handlers.mousedown);
   }
 
   /**
@@ -72,48 +64,6 @@ class FreeDrawing extends Component {
     const canvas = this.getCanvas();
 
     canvas.isDrawingMode = false;
-
-    canvas.off({
-      'mouse:down': this._handlers.mousedown,
-    });
-  }
-
-  _onFabricMouseDown() {
-    const canvas = this.getCanvas();
-
-    canvas.on({
-      'mouse:move': this._handlers.mousemove,
-      'mouse:up': this._handlers.mouseup,
-    });
-
-    this.fire(events.ADD_OBJECT, this.graphics.createObjectProperties());
-  }
-
-  _onFabricMouseMove(fEvent) {
-    const canvas = this.getCanvas();
-    const pointer = canvas.getPointer(fEvent.e);
-
-    this._line.set({
-      x2: pointer.x,
-      y2: pointer.y,
-    });
-
-    this._line.setCoords();
-
-    canvas.renderAll();
-  }
-
-  _onFabricMouseUp() {
-    const canvas = this.getCanvas();
-
-    this.fire(events.OBJECT_ADDED, this._createLineEventObjectProperties());
-
-    this._line = null;
-
-    canvas.off({
-      'mouse:move': this._handlers.mousemove,
-      'mouse:up': this._handlers.mouseup,
-    });
   }
 }
 
