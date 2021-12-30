@@ -6534,6 +6534,8 @@ var _tuiCodeSnippet = __webpack_require__(/*! tui-code-snippet */ "tui-code-snip
 
 var _fabric = __webpack_require__(/*! fabric */ "fabric");
 
+var _fabric2 = _interopRequireDefault(_fabric);
+
 var _component = __webpack_require__(/*! @/interface/component */ "./src/js/interface/component.js");
 
 var _component2 = _interopRequireDefault(_component);
@@ -6570,7 +6572,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 
-var filters = _fabric.fabric.Image.filters;
+var filters = _fabric2.default.Image.filters;
 
 
 filters.Mask = _mask2.default;
@@ -6762,7 +6764,7 @@ var Filter = function (_Component) {
       var filterObj = void 0;
       // capitalize first letter for matching with fabric image filter name
       var fabricType = this._getFabricFilterType(type);
-      var ImageFilter = _fabric.fabric.Image.filters[fabricType];
+      var ImageFilter = _fabric2.default.Image.filters[fabricType];
       if (ImageFilter) {
         filterObj = new ImageFilter(options);
         filterObj.options = options;
