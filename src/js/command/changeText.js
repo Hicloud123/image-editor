@@ -3,6 +3,7 @@
  * @fileoverview Change a text
  */
 import commandFactory from '@/factory/command';
+import { Promise } from '@/util';
 import { componentNames, rejectMessages, commandNames } from '@/consts';
 
 const { TEXT } = componentNames;

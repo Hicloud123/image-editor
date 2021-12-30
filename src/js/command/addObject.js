@@ -3,6 +3,7 @@
  * @fileoverview Add an object
  */
 import commandFactory from '@/factory/command';
+import { Promise } from '@/util';
 import { commandNames, rejectMessages } from '@/consts';
 
 const command = {
