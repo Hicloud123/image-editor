@@ -3,7 +3,7 @@
  * @fileoverview Graphics module
  */
 import snippet from 'tui-code-snippet';
-import { fabric } from 'fabric';
+import fabric from 'fabric';
 import ImageLoader from '@/component/imageLoader';
 import Cropper from '@/component/cropper';
 import Flip from '@/component/flip';
@@ -27,7 +27,7 @@ import {
   makeSelectionUndoDatum,
   setCachedUndoDataForDimension,
 } from '@/helper/selectionModifyHelper';
-import { getProperties, includes, isShape } from '@/util';
+import { getProperties, includes, isShape, Promise } from '@/util';
 import {
   componentNames as components,
   eventNames as events,

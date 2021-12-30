@@ -3,6 +3,7 @@
  * @fileoverview Add a text object
  */
 import commandFactory from '@/factory/command';
+import { Promise } from '@/util';
 import { componentNames, commandNames, rejectMessages } from '@/consts';
 import {
   setCachedUndoDataForDimension,

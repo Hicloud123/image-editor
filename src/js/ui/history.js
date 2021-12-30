@@ -28,6 +28,9 @@ class History extends Panel {
    * @param {?string} detail - detail information of history
    */
   add({ name, detail }) {
+    console.log('======Add history======');
+    console.log(name);
+    console.log(detail);
     if (this._hasDisabledItem()) {
       this.deleteListItemElement(this._historyIndex + 1, this.getListLength());
     }
@@ -44,6 +47,7 @@ class History extends Panel {
    * Init history
    */
   init() {
+    console.log('======Init history======');
     this.deleteListItemElement(1, this.getListLength());
     this._historyIndex = 0;
     this._selectItem(this._historyIndex);
@@ -53,6 +57,7 @@ class History extends Panel {
    * Clear history
    */
   clear() {
+    console.log('======Clear history======');
     this.deleteListItemElement(0, this.getListLength());
     this._historyIndex = -1;
   }
@@ -61,6 +66,7 @@ class History extends Panel {
    * Select previous history of current selected history
    */
   prev() {
+    console.log('======prev history======');
     this._historyIndex -= 1;
     this._selectItem(this._historyIndex);
   }
@@ -69,6 +75,7 @@ class History extends Panel {
    * Select next history of current selected history
    */
   next() {
+    console.log('======next history======');
     this._historyIndex += 1;
     this._selectItem(this._historyIndex);
   }
@@ -86,6 +93,7 @@ class History extends Panel {
    * @private
    */
   _addHistoryEventListener() {
+    console.log('_addHistoryEventListener');
     this._eventHandler.history = (event) => this._clickHistoryItem(event);
     this.listElement.addEventListener('click', this._eventHandler.history);
   }

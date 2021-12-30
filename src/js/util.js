@@ -3,6 +3,7 @@
  * @fileoverview Util
  */
 import { forEach, sendHostname, extend, isString, pick, inArray } from 'tui-code-snippet';
+import Promise from 'core-js-pure/features/promise';
 import {
   commandNames,
   filterType,
@@ -17,9 +18,11 @@ const CSS_PREFIX = 'tui-image-editor-';
 const { min, max } = Math;
 let hostnameSent = false;
 
-export function isFunction(value) {
-  return typeof value === 'function';
-}
+/**
+ * Export Promise Class (for simplified module path)
+ * @returns {Promise} promise class
+ */
+export { Promise };
 
 /**
  * Clamp value

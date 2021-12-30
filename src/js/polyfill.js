@@ -1,26 +1,22 @@
-/* eslint-disable */
-
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
-if (!Element.prototype.matches) {
-  Element.prototype.matches =
-    Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-}
+// Any copyright is dedicated to the Public Domain. http://creativecommons.org/publicdomain/zero/1.0/if (!Element.prototype.matches)
+Element.prototype.matches =
+  Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 
-if (!Element.prototype.closest) {
+if (!Element.prototype.closest)
   Element.prototype.closest = function (s) {
     var el = this;
-
+    if (!document.documentElement.contains(el)) return null;
     do {
-      if (Element.prototype.matches.call(el, s)) return el;
+      if (el.matches(s)) return el;
       el = el.parentElement || el.parentNode;
     } while (el !== null && el.nodeType === 1);
     return null;
   };
-}
 
 /*
  * classList.js: Cross-browser full element.classList implementation.
- * 1.2.20171210
+ * 1.1.20170427
  *
  * By Eli Grey, http://eligrey.com
  * License: Dedicated to the public domain.
@@ -31,7 +27,7 @@ if (!Element.prototype.closest) {
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
 
-if ('document' in self) {
+if ('document' in window.self) {
   // Full polyfill for browsers with no classList support
   // Including IE < Edge missing SVGElement.classList
   if (
@@ -73,13 +69,10 @@ if ('document' in self) {
         },
         checkTokenAndGetIndex = function (classList, token) {
           if (token === '') {
-            throw new DOMEx('SYNTAX_ERR', 'The token must not be empty.');
+            throw new DOMEx('SYNTAX_ERR', 'An invalid or illegal string was specified');
           }
           if (/\s/.test(token)) {
-            throw new DOMEx(
-              'INVALID_CHARACTER_ERR',
-              'The token must not contain space characters.'
-            );
+            throw new DOMEx('INVALID_CHARACTER_ERR', 'String contains an invalid character');
           }
           return arrIndexOf.call(classList, token);
         },
@@ -106,7 +99,8 @@ if ('document' in self) {
         return this[i] || null;
       };
       classListProto.contains = function (token) {
-        return ~checkTokenAndGetIndex(this, token + '');
+        token += '';
+        return checkTokenAndGetIndex(this, token) !== -1;
       };
       classListProto.add = function () {
         var tokens = arguments,
@@ -116,7 +110,7 @@ if ('document' in self) {
           updated = false;
         do {
           token = tokens[i] + '';
-          if (!~checkTokenAndGetIndex(this, token)) {
+          if (checkTokenAndGetIndex(this, token) === -1) {
             this.push(token);
             updated = true;
           }
@@ -136,7 +130,7 @@ if ('document' in self) {
         do {
           token = tokens[i] + '';
           index = checkTokenAndGetIndex(this, token);
-          while (~index) {
+          while (index !== -1) {
             this.splice(index, 1);
             updated = true;
             index = checkTokenAndGetIndex(this, token);
@@ -148,6 +142,8 @@ if ('document' in self) {
         }
       };
       classListProto.toggle = function (token, force) {
+        token += '';
+
         var result = this.contains(token),
           method = result ? force !== true && 'remove' : force !== false && 'add';
         if (method) {
@@ -158,13 +154,6 @@ if ('document' in self) {
           return force;
         } else {
           return !result;
-        }
-      };
-      classListProto.replace = function (token, replacement_token) {
-        var index = checkTokenAndGetIndex(token + '');
-        if (~index) {
-          this.splice(index, 1, replacement_token);
-          this._updateClassName();
         }
       };
       classListProto.toString = function () {
@@ -191,7 +180,7 @@ if ('document' in self) {
       } else if (objCtr[protoProp].__defineGetter__) {
         elemCtrProto.__defineGetter__(classListProp, classListGetter);
       }
-    })(self);
+    })(window.self);
   }
 
   // There is full or partial native classList support, so just check if we need
@@ -236,20 +225,6 @@ if ('document' in self) {
           return force;
         } else {
           return _toggle.call(this, token);
-        }
-      };
-    }
-
-    // replace() polyfill
-    if (!('replace' in document.createElement('_').classList)) {
-      DOMTokenList.prototype.replace = function (token, replacement_token) {
-        var tokens = this.toString().split(' '),
-          index = tokens.indexOf(token + '');
-        if (~index) {
-          tokens = tokens.slice(index);
-          this.remove.apply(this, tokens);
-          this.add(replacement_token);
-          this.add.apply(this, tokens.slice(1));
         }
       };
     }

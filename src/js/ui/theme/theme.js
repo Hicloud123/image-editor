@@ -173,8 +173,7 @@ class Theme {
   _loadDefaultSvgIcon() {
     if (!document.getElementById('tui-image-editor-svg-default-icons')) {
       const parser = new DOMParser();
-      const encodedURI = icon.replace(/data:image\/svg\+xml;base64,/, '');
-      const dom = parser.parseFromString(atob(encodedURI), 'text/xml');
+      const dom = parser.parseFromString(icon, 'text/xml');
 
       document.body.appendChild(dom.documentElement);
     }
