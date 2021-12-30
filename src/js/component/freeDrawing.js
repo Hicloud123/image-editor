@@ -31,6 +31,8 @@ class FreeDrawing extends Component {
 
     this._handlers = {
       mousedown: this._onFabricMouseDown.bind(this),
+      mousemove: this._onFabricMouseMove.bind(this),
+      mouseup: this._onFabricMouseUp.bind(this),
     };
   }
 
@@ -77,7 +79,41 @@ class FreeDrawing extends Component {
   }
 
   _onFabricMouseDown() {
+    const canvas = this.getCanvas();
+
+    canvas.on({
+      'mouse:move': this._handlers.mousemove,
+      'mouse:up': this._handlers.mouseup,
+    });
+
     this.fire(events.ADD_OBJECT, this.graphics.createObjectProperties());
+  }
+
+  _onFabricMouseMove(fEvent) {
+    const canvas = this.getCanvas();
+    const pointer = canvas.getPointer(fEvent.e);
+
+    this._line.set({
+      x2: pointer.x,
+      y2: pointer.y,
+    });
+
+    this._line.setCoords();
+
+    canvas.renderAll();
+  }
+
+  _onFabricMouseUp() {
+    const canvas = this.getCanvas();
+
+    this.fire(events.OBJECT_ADDED, this._createLineEventObjectProperties());
+
+    this._line = null;
+
+    canvas.off({
+      'mouse:move': this._handlers.mousemove,
+      'mouse:up': this._handlers.mouseup,
+    });
   }
 }
 

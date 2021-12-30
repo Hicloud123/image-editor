@@ -7138,7 +7138,9 @@ var FreeDrawing = function (_Component) {
     _this.oColor = new _fabric2.default.Color('rgba(0, 0, 0, 0.5)');
 
     _this._handlers = {
-      mousedown: _this._onFabricMouseDown.bind(_this)
+      mousedown: _this._onFabricMouseDown.bind(_this),
+      mousemove: _this._onFabricMouseMove.bind(_this),
+      mouseup: _this._onFabricMouseUp.bind(_this)
     };
     return _this;
   }
@@ -7197,7 +7199,43 @@ var FreeDrawing = function (_Component) {
   }, {
     key: '_onFabricMouseDown',
     value: function _onFabricMouseDown() {
+      var canvas = this.getCanvas();
+
+      canvas.on({
+        'mouse:move': this._handlers.mousemove,
+        'mouse:up': this._handlers.mouseup
+      });
+
       this.fire(_consts.eventNames.ADD_OBJECT, this.graphics.createObjectProperties());
+    }
+  }, {
+    key: '_onFabricMouseMove',
+    value: function _onFabricMouseMove(fEvent) {
+      var canvas = this.getCanvas();
+      var pointer = canvas.getPointer(fEvent.e);
+
+      this._line.set({
+        x2: pointer.x,
+        y2: pointer.y
+      });
+
+      this._line.setCoords();
+
+      canvas.renderAll();
+    }
+  }, {
+    key: '_onFabricMouseUp',
+    value: function _onFabricMouseUp() {
+      var canvas = this.getCanvas();
+
+      this.fire(_consts.eventNames.OBJECT_ADDED, this._createLineEventObjectProperties());
+
+      this._line = null;
+
+      canvas.off({
+        'mouse:move': this._handlers.mousemove,
+        'mouse:up': this._handlers.mouseup
+      });
     }
   }]);
 
