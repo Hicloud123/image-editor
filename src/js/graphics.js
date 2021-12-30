@@ -668,8 +668,6 @@ class Graphics {
   }
 
   loadCanvasFromJson(jsonString) {
-    console.log('loadCanvasFromJson');
-    console.log(jsonString);
     this._canvas.loadFromJSON(jsonString, () => {
       this._canvas.renderAll();
     });
@@ -987,7 +985,7 @@ class Graphics {
       canvasElement = document.createElement('canvas');
       selectedElement.appendChild(canvasElement);
     }
-    console.log('_setCanvasElement');
+
     this._canvas = new fabric.Canvas(canvasElement, {
       containerClass: 'tui-image-editor-canvas-container',
       enableRetinaScaling: false,
