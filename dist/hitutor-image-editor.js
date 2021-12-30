@@ -7351,7 +7351,7 @@ var Icon = function (_Component) {
         }
 
         icon.set(_tuiCodeSnippet2.default.extend({
-          type: 'path',
+          type: 'icon',
           fill: _this2._oColor
         }, selectionStyle, options, _this2.graphics.controlStyle));
 
