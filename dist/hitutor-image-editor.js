@@ -3473,11 +3473,6 @@ module.exports = g;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ImageEditor = undefined;
-
 __webpack_require__(/*! @/polyfill */ "./src/js/polyfill.js");
 
 var _imageEditor = __webpack_require__(/*! @/imageEditor */ "./src/js/imageEditor.js");
@@ -3530,11 +3525,9 @@ __webpack_require__(/*! @/command/resize */ "./src/js/command/resize.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = _imageEditor2.default;
+module.exports = _imageEditor2.default;
 
 // commands
-
-exports.ImageEditor = _imageEditor2.default;
 
 /***/ }),
 
@@ -4340,16 +4333,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Add an icon
- */
-var ICON = _consts.componentNames.ICON;
-
+var ICON = _consts.componentNames.ICON; /**
+                                         * @author NHN. FE Development Team <dl_javascript@nhn.com>
+                                         * @fileoverview Add an icon
+                                         */
 
 var command = {
   name: _consts.commandNames.ADD_ICON,
@@ -4384,7 +4377,7 @@ var command = {
   undo: function undo(graphics) {
     graphics.remove(this.undoData.object);
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
 };
 
@@ -4412,14 +4405,12 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Add an image object
- */
 var command = {
   name: _consts.commandNames.ADD_IMAGE_OBJECT,
 
@@ -4447,9 +4438,13 @@ var command = {
   undo: function undo(graphics) {
     graphics.remove(this.undoData.object);
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
-};
+}; /**
+    * @author NHN. FE Development Team <dl_javascript@nhn.com>
+    * @fileoverview Add an image object
+    */
+
 
 _command2.default.register(command);
 
@@ -4475,14 +4470,12 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Add an object
- */
 var command = {
   name: _consts.commandNames.ADD_OBJECT,
 
@@ -4493,7 +4486,7 @@ var command = {
    * @returns {Promise}
    */
   execute: function execute(graphics, object) {
-    return new Promise(function (resolve, reject) {
+    return new _util.Promise(function (resolve, reject) {
       if (!graphics.contains(object)) {
         graphics.add(object);
         resolve(object);
@@ -4510,7 +4503,7 @@ var command = {
    * @returns {Promise}
    */
   undo: function undo(graphics, object) {
-    return new Promise(function (resolve, reject) {
+    return new _util.Promise(function (resolve, reject) {
       if (graphics.contains(object)) {
         graphics.remove(object);
         resolve(object);
@@ -4519,7 +4512,11 @@ var command = {
       }
     });
   }
-};
+}; /**
+    * @author NHN. FE Development Team <dl_javascript@nhn.com>
+    * @fileoverview Add an object
+    */
+
 
 _command2.default.register(command);
 
@@ -4545,16 +4542,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Add a shape
- */
-var SHAPE = _consts.componentNames.SHAPE;
-
+var SHAPE = _consts.componentNames.SHAPE; /**
+                                           * @author NHN. FE Development Team <dl_javascript@nhn.com>
+                                           * @fileoverview Add a shape
+                                           */
 
 var command = {
   name: _consts.commandNames.ADD_SHAPE,
@@ -4599,7 +4596,7 @@ var command = {
   undo: function undo(graphics) {
     graphics.remove(this.undoData.object);
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
 };
 
@@ -4627,16 +4624,20 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 var _selectionModifyHelper = __webpack_require__(/*! @/helper/selectionModifyHelper */ "./src/js/helper/selectionModifyHelper.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TEXT = _consts.componentNames.TEXT; /**
-                                         * @author NHN. FE Development Team <dl_javascript@nhn.com>
-                                         * @fileoverview Add a text object
-                                         */
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Add a text object
+ */
+var TEXT = _consts.componentNames.TEXT;
+
 
 var command = {
   name: _consts.commandNames.ADD_TEXT,
@@ -4665,7 +4666,7 @@ var command = {
     if (this.undoData.object) {
       var undoObject = this.undoData.object;
 
-      return new Promise(function (resolve, reject) {
+      return new _util.Promise(function (resolve, reject) {
         if (!graphics.contains(undoObject)) {
           graphics.add(undoObject);
           resolve(undoObject);
@@ -4698,7 +4699,7 @@ var command = {
   undo: function undo(graphics) {
     graphics.remove(this.undoData.object);
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
 };
 
@@ -4852,16 +4853,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Change icon color
- */
-var ICON = _consts.componentNames.ICON;
-
+var ICON = _consts.componentNames.ICON; /**
+                                         * @author NHN. FE Development Team <dl_javascript@nhn.com>
+                                         * @fileoverview Change icon color
+                                         */
 
 var command = {
   name: _consts.commandNames.CHANGE_ICON_COLOR,
@@ -4876,7 +4877,7 @@ var command = {
   execute: function execute(graphics, id, color) {
     var _this = this;
 
-    return new Promise(function (resolve, reject) {
+    return new _util.Promise(function (resolve, reject) {
       var iconComp = graphics.getComponent(ICON);
       var targetObj = graphics.getObject(id);
 
@@ -4905,7 +4906,7 @@ var command = {
 
     iconComp.setColor(color, icon);
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
 };
 
@@ -4933,12 +4934,18 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 var _selectionModifyHelper = __webpack_require__(/*! @/helper/selectionModifyHelper */ "./src/js/helper/selectionModifyHelper.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview change selection
+ */
 var command = {
   name: _consts.commandNames.CHANGE_SELECTION,
 
@@ -4951,20 +4958,16 @@ var command = {
       this.undoData = (0, _selectionModifyHelper.getCachedUndoDataForDimension)();
     }
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   },
   undo: function undo(graphics) {
     this.undoData.forEach(function (datum) {
       graphics.setObjectProperties(datum.id, datum);
     });
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
-}; /**
-    * @author NHN. FE Development Team <dl_javascript@nhn.com>
-    * @fileoverview change selection
-    */
-
+};
 
 _command2.default.register(command);
 
@@ -4994,19 +4997,21 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview change a shape
+ */
 var SHAPE = _consts.componentNames.SHAPE;
 
 /**
  * Cached data for undo
  * @type {Object}
- */
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview change a shape
  */
 
 var cachedUndoDataForSilent = null;
@@ -5056,7 +5061,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return Promise.reject(_consts.rejectMessages.noObject);
+      return _util.Promise.reject(_consts.rejectMessages.noObject);
     }
 
     if (!this.isRedo) {
@@ -5108,16 +5113,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Change a text
- */
-var TEXT = _consts.componentNames.TEXT;
-
+var TEXT = _consts.componentNames.TEXT; /**
+                                         * @author NHN. FE Development Team <dl_javascript@nhn.com>
+                                         * @fileoverview Change a text
+                                         */
 
 var command = {
   name: _consts.commandNames.CHANGE_TEXT,
@@ -5134,7 +5139,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return Promise.reject(_consts.rejectMessages.noObject);
+      return _util.Promise.reject(_consts.rejectMessages.noObject);
     }
 
     this.undoData.object = targetObj;
@@ -5187,19 +5192,21 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Change text styles
+ */
 var TEXT = _consts.componentNames.TEXT;
 
 /**
  * Cached data for undo
  * @type {Object}
- */
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Change text styles
  */
 
 var cachedUndoDataForSilent = null;
@@ -5246,7 +5253,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return Promise.reject(_consts.rejectMessages.noObject);
+      return _util.Promise.reject(_consts.rejectMessages.noObject);
     }
     if (!this.isRedo) {
       var undoData = makeUndoData(styles, targetObj);
@@ -5297,14 +5304,12 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Clear all objects
- */
 var command = {
   name: _consts.commandNames.CLEAR_OBJECTS,
 
@@ -5316,7 +5321,7 @@ var command = {
   execute: function execute(graphics) {
     var _this = this;
 
-    return new Promise(function (resolve) {
+    return new _util.Promise(function (resolve) {
       _this.undoData.objects = graphics.removeAll();
       resolve();
     });
@@ -5331,9 +5336,13 @@ var command = {
   undo: function undo(graphics) {
     graphics.add(this.undoData.objects);
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
-};
+}; /**
+    * @author NHN. FE Development Team <dl_javascript@nhn.com>
+    * @fileoverview Clear all objects
+    */
+
 
 _command2.default.register(command);
 
@@ -5584,14 +5593,12 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Remove an object
- */
 var command = {
   name: _consts.commandNames.REMOVE_OBJECT,
 
@@ -5604,7 +5611,7 @@ var command = {
   execute: function execute(graphics, id) {
     var _this = this;
 
-    return new Promise(function (resolve, reject) {
+    return new _util.Promise(function (resolve, reject) {
       _this.undoData.objects = graphics.removeObjectById(id);
       if (_this.undoData.objects.length) {
         resolve();
@@ -5622,9 +5629,13 @@ var command = {
   undo: function undo(graphics) {
     graphics.add(this.undoData.objects);
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
-};
+}; /**
+    * @author NHN. FE Development Team <dl_javascript@nhn.com>
+    * @fileoverview Remove an object
+    */
+
 
 _command2.default.register(command);
 
@@ -5719,14 +5730,12 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Resize a canvas
- */
 var command = {
   name: _consts.commandNames.RESIZE_CANVAS_DIMENSION,
 
@@ -5739,7 +5748,7 @@ var command = {
   execute: function execute(graphics, dimension) {
     var _this = this;
 
-    return new Promise(function (resolve) {
+    return new _util.Promise(function (resolve) {
       _this.undoData.size = {
         width: graphics.cssMaxWidth,
         height: graphics.cssMaxHeight
@@ -5760,9 +5769,13 @@ var command = {
     graphics.setCssMaxDimension(this.undoData.size);
     graphics.adjustCanvasDimension();
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
-};
+}; /**
+    * @author NHN. FE Development Team <dl_javascript@nhn.com>
+    * @fileoverview Resize a canvas
+    */
+
 
 _command2.default.register(command);
 
@@ -5883,14 +5896,12 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @author NHN. FE Development Team <dl_javascript@nhn.com>
- * @fileoverview Set object properties
- */
 var command = {
   name: _consts.commandNames.SET_OBJECT_POSITION,
 
@@ -5909,7 +5920,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return Promise.reject(_consts.rejectMessages.noObject);
+      return _util.Promise.reject(_consts.rejectMessages.noObject);
     }
 
     this.undoData.objectId = id;
@@ -5918,7 +5929,7 @@ var command = {
     graphics.setObjectPosition(id, posInfo);
     graphics.renderAll();
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   },
 
 
@@ -5935,9 +5946,13 @@ var command = {
     graphics.setObjectProperties(objectId, props);
     graphics.renderAll();
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
-};
+}; /**
+    * @author NHN. FE Development Team <dl_javascript@nhn.com>
+    * @fileoverview Set object properties
+    */
+
 
 _command2.default.register(command);
 
@@ -5967,10 +5982,16 @@ var _command = __webpack_require__(/*! @/factory/command */ "./src/js/factory/co
 
 var _command2 = _interopRequireDefault(_command);
 
+var _util = __webpack_require__(/*! @/util */ "./src/js/util.js");
+
 var _consts = __webpack_require__(/*! @/consts */ "./src/js/consts.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @author NHN. FE Development Team <dl_javascript@nhn.com>
+ * @fileoverview Set object properties
+ */
 var command = {
   name: _consts.commandNames.SET_OBJECT_PROPERTIES,
 
@@ -5994,7 +6015,7 @@ var command = {
     var targetObj = graphics.getObject(id);
 
     if (!targetObj) {
-      return Promise.reject(_consts.rejectMessages.noObject);
+      return _util.Promise.reject(_consts.rejectMessages.noObject);
     }
 
     this.undoData.props = {};
@@ -6004,7 +6025,7 @@ var command = {
 
     graphics.setObjectProperties(id, props);
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   },
 
 
@@ -6019,13 +6040,9 @@ var command = {
 
     graphics.setObjectProperties(id, props);
 
-    return Promise.resolve();
+    return _util.Promise.resolve();
   }
-}; /**
-    * @author NHN. FE Development Team <dl_javascript@nhn.com>
-    * @fileoverview Set object properties
-    */
-
+};
 
 _command2.default.register(command);
 
