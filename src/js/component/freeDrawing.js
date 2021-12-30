@@ -77,7 +77,7 @@ class FreeDrawing extends Component {
   }
 
   _onFabricMouseDown() {
-    this.fire(events.OBJECT_ADDED, this.graphics.createObjectProperties());
+    this.fire(events.ADD_OBJECT, this.graphics.createObjectProperties());
   }
 }
 

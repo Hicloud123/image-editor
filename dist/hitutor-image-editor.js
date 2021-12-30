@@ -7197,7 +7197,7 @@ var FreeDrawing = function (_Component) {
   }, {
     key: '_onFabricMouseDown',
     value: function _onFabricMouseDown() {
-      this.fire(_consts.eventNames.OBJECT_ADDED, this.graphics.createObjectProperties());
+      this.fire(_consts.eventNames.ADD_OBJECT, this.graphics.createObjectProperties());
     }
   }]);
 
