@@ -3473,11 +3473,6 @@ module.exports = g;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ImageEditor = undefined;
-
 __webpack_require__(/*! @/polyfill */ "./src/js/polyfill.js");
 
 var _imageEditor = __webpack_require__(/*! @/imageEditor */ "./src/js/imageEditor.js");
@@ -3530,11 +3525,9 @@ __webpack_require__(/*! @/command/resize */ "./src/js/command/resize.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = _imageEditor2.default;
+module.exports = _imageEditor2.default;
 
 // commands
-
-exports.ImageEditor = _imageEditor2.default;
 
 /***/ }),
 
