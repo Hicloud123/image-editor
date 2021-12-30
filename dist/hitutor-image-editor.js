@@ -13928,8 +13928,6 @@ var Graphics = function () {
     value: function loadCanvasFromJson(jsonString) {
       var _this = this;
 
-      console.log('loadCanvasFromJson');
-      console.log(jsonString);
       this._canvas.loadFromJSON(jsonString, function () {
         _this._canvas.renderAll();
       });
@@ -14315,7 +14313,7 @@ var Graphics = function () {
         canvasElement = document.createElement('canvas');
         selectedElement.appendChild(canvasElement);
       }
-      console.log('_setCanvasElement');
+
       this._canvas = new _fabric2.default.Canvas(canvasElement, {
         containerClass: 'tui-image-editor-canvas-container',
         enableRetinaScaling: false
