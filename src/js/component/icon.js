@@ -122,7 +122,7 @@ class Icon extends Component {
       icon.set(
         snippet.extend(
           {
-            type: 'icon',
+            type: 'path',
             fill: this._oColor,
           },
           selectionStyle,
