@@ -668,8 +668,6 @@ class Graphics {
   }
 
   loadCanvasFromJson(jsonString) {
-    console.log('loadCanvasFromJson');
-    console.log(jsonString);
     this._canvas.loadFromJSON(jsonString, () => {
       this._canvas.renderAll();
     });

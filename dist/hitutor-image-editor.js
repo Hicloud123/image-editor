@@ -7368,7 +7368,7 @@ var Icon = function (_Component) {
         }
 
         icon.set(_tuiCodeSnippet2.default.extend({
-          type: 'path',
+          type: 'icon',
           fill: _this2._oColor
         }, selectionStyle, options, _this2.graphics.controlStyle));
 
@@ -13928,8 +13928,6 @@ var Graphics = function () {
     value: function loadCanvasFromJson(jsonString) {
       var _this = this;
 
-      console.log('loadCanvasFromJson');
-      console.log(jsonString);
       this._canvas.loadFromJSON(jsonString, function () {
         _this._canvas.renderAll();
       });
